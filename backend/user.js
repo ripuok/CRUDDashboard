@@ -12,7 +12,9 @@ useUnifiedTopology: true});
 const userSchema = new mongoose.Schema({
     Name : String,
     LastName : String,
+    image : String,
     _id: {
+
         type: String,
         default: function () {
             return new ObjectId().toString()
@@ -25,9 +27,9 @@ const User = mongoose.model('user', userSchema);
 
 router.get('/',async function(req,res){
     try{
-        console.log("first")
+       // console.log("first")
         const users = await User.find();
-        console.log(User)
+       // console.log(users)
         res.json({"user": users})
     }catch( error ){
         console.log(error);
